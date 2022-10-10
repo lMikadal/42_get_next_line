@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmikada <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 14:24:10 by pmikada           #+#    #+#             */
-/*   Updated: 2022/07/12 22:32:05 by pmikada          ###   ########.fr       */
+/*   Created: 2022/10/10 10:11:19 by pmikada           #+#    #+#             */
+/*   Updated: 2022/10/10 10:11:21 by pmikada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "fdf.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-
-typedef struct s_buff
+void	ft_free_2_d_char(char **s)
 {
-	char	*buff;
-	char	*temp_buff;
-}	t_buff;
+	int	i;
 
-int		ft_strlen(char *s);
-int		ft_strlen_nl(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strdup(char *s);
-char	*get_next_line(int fd);
+	i = 0;
+	while (s[i])
+		free(s[i++]);
+	free(s);
+}
 
-#endif
+void	ft_free_3_d_char(char ***s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		ft_free_2_d_char(s[i++]);
+	free(s);
+}

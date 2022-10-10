@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-int	ft_strlen(char *s)
+int	ft_strlen_g(char *s)
 {
 	int	i;
 
@@ -51,8 +51,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	int		j;
 
-	s1_len = ft_strlen(s1);
-	sumlen = s1_len + ft_strlen(s2);
+	s1_len = ft_strlen_g(s1);
+	sumlen = s1_len + ft_strlen_g(s2);
 	m = (char *)malloc((sumlen * sizeof(char)) + 1);
 	if (m == NULL)
 		return (NULL);
@@ -80,7 +80,7 @@ char	*ft_strdup(char *s)
 
 	len = ft_strlen_nl(s);
 	if (len == -1)
-		len = ft_strlen(s);
+		len = ft_strlen_g(s);
 	m = (char *)malloc((len * sizeof(char)) + 1);
 	if (m == NULL)
 		return (NULL);

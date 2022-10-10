@@ -21,8 +21,8 @@ char	*ft_cut(t_buff *b)
 
 	len_nl = ft_strlen_nl(b->temp_buff);
 	if (len_nl == -1)
-		len_nl = ft_strlen(b->temp_buff);
-	diff = ft_strlen(b->temp_buff) - len_nl;
+		len_nl = ft_strlen_g(b->temp_buff);
+	diff = ft_strlen_g(b->temp_buff) - len_nl;
 	m = (char *)malloc((diff * sizeof(char)) + 1);
 	if (m == NULL)
 		return (NULL);
@@ -51,16 +51,16 @@ char	*get_next_line(int fd)
 	char			*r_buff;
 	int				r_read;
 
-	if (fd < 0 || BUFFER_SIZE < 0 || read(fd, NULL, 0) == -1)
+	if (fd < 0 || 3 < 0 || read(fd, NULL, 0) == -1)
 		return (NULL);
 	r_read = 1;
 	r_buff = NULL;
-	b.buff = (char *)malloc((BUFFER_SIZE * sizeof(char)) + 1);
+	b.buff = (char *)malloc((3 * sizeof(char)) + 1);
 	if (b.buff == NULL)
 		return (NULL);
 	while (r_read > 0)
 	{
-		r_read = read(fd, b.buff, BUFFER_SIZE);
+		r_read = read(fd, b.buff, 3);
 		b.buff[r_read] = '\0';
 		if (r_read == 0)
 			break ;
