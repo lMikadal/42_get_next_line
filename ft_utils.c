@@ -32,3 +32,28 @@ void	ft_init_list(t_list *lst)
 {
 	lst->map = NULL;
 }
+
+int	ft_atoi(char *str, t_list *lst)
+{
+	int			i;
+	int			m;
+	long int	sum;
+
+	i = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	m = 1;
+	if (str[i] == '-')
+		m = -1;
+	if (str[i] == '-' || str[i] == '+')
+		i++;
+	sum = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		sum = (sum * 10) + (str[i] - '0');
+		i++;
+	}
+	if (sum * m > 2147483647 || sum * m < -2147483648)
+		ft_free_end(lst);
+	return ((int)(sum * m));
+}

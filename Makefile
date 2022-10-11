@@ -14,7 +14,7 @@ GCC = GCC
 
 NAME = fdf
 
-SRCS = ft_utils.c ft_split.c ft_free.c ft_map.c
+SRCS = ft_utils.c ft_split.c ft_free.c ft_map.c ft_write_map.c
 
 G_N_L = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 

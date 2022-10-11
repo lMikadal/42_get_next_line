@@ -56,12 +56,12 @@ static void	ft_chk_line(t_list *lst, t_map *map, int i, int *chk)
 	if (i == 0)
 	{
 		line = 0;
-		while (lst->map[0][j])
+		while (lst->map[0][j] && lst->map[0][j][0] != '\n')
 			j++;
 		line = j;
 		return ;
 	}
-	while (lst->map[i][j])
+	while (lst->map[i][j] && lst->map[i][j][0] != '\n')
 		j++;
 	if (line != j)
 		*chk += 1;
@@ -100,4 +100,5 @@ void	ft_map(t_list *lst, char **av)
 	lst->map[i] = NULL;
 	ft_free_2_d_char(map.stk);
 	ft_err(chk, lst);
+	lst->line = map.line;
 }

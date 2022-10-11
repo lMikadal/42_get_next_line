@@ -31,3 +31,9 @@ void	ft_free_3_d_char(char ***s)
 		ft_free_2_d_char(s[i++]);
 	free(s);
 }
+
+void	ft_free_end(t_list *lst)
+{
+	ft_free_3_d_char(lst->map);
+	free(lst->img);
+}

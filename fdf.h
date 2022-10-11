@@ -27,17 +27,31 @@ typedef struct s_map
 	char	**stk;
 }	t_map;
 
+typedef struct s_img
+{
+	void	*img;
+	char	*addr;
+	int		bits;
+	int		line;
+	int		endian;
+}	t_img;
+
 typedef struct s_list
 {
 	char	***map;
+	int		line;
+	t_img	*img;
 }	t_list;
 
 int		ft_strlen(char *s);
 void	ft_init_map(t_map *map);
 void	ft_init_list(t_list *lst);
+int		ft_atoi(char *str, t_list *lst);
 char	**ft_split(char *s, char c);
 void	ft_free_2_d_char(char **s);
 void	ft_free_3_d_char(char ***s);
+void	ft_free_end(t_list *lst);
 void	ft_map(t_list *lst, char **av);
+void	ft_write_map(t_list *lst, char *av);
 
 #endif
