@@ -73,6 +73,7 @@ static void	ft_chk_map(t_list *lst)
 int	main(int ac, char **av)
 {
 	t_list	lst;
+	t_pixel	*pixel;
 
 	if (ac == 2)
 	{
@@ -80,13 +81,42 @@ int	main(int ac, char **av)
 		ft_init_list(&lst);
 		ft_map(&lst, av);
 		ft_chk_map(&lst);
-		lst.img = (t_img *)malloc(sizeof(t_img) + 1);
-		if (!lst.img)
+		pixel = (t_pixel *)malloc(sizeof(t_pixel));
+		if (!pixel)
 			return (0);
-		ft_write_map(&lst, av[1]);
-		ft_free_end(&lst);
+		ft_pixel(&lst, pixel);
+ft_print_color(pixel);
+		ft_write_map(pixel, av[1]);
+
+		ft_free_end(&lst, pixel);
 	}
 	else
 		write(2, "argument not correct\n", 21);
 	return (0);
+}
+
+void	ft_print_pixel(t_pixel *pixel)
+{
+	int	i = -1;
+	while (++i < pixel->count)
+		printf("point[%d](x = %f, y = %f, z = %f)\n", i, pixel->point[i][0], pixel->point[i][1], pixel->point[i][2]);
+}
+
+void	ft_print_map(t_list *lst)
+{
+	int	i = -1;
+	int	j;
+	while (lst->map[++i])
+	{
+		j = -1;
+		while (lst->map[i][++j])
+			printf("map[%d][%d] = |%s|\n", i, j, lst->map[i][j]);
+	}
+}
+
+void	ft_print_color(t_pixel *pixel)
+{
+	int	i = -1;
+	while (++i < pixel->count_color)
+		printf("color: index[%d] = %d\n", pixel->color[i][0], pixel->color[i][1]);
 }

@@ -100,5 +100,4 @@ void	ft_map(t_list *lst, char **av)
 	lst->map[i] = NULL;
 	ft_free_2_d_char(map.stk);
 	ft_err(chk, lst);
-	lst->line = map.line;
 }

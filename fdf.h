@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
+# include <limits.h>
 # include "minilibx_macos/mlx.h"
 # include "get_next_line/get_next_line.h"
 
@@ -26,6 +27,11 @@ typedef struct s_map
 	int		line;
 	char	**stk;
 }	t_map;
+
+typedef struct s_list
+{
+	char	***map;
+}	t_list;
 
 typedef struct s_img
 {
@@ -36,22 +42,36 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
-typedef struct s_list
+typedef struct s_pixel
 {
-	char	***map;
-	int		line;
+	double	point[OPEN_MAX][3];
+	int		line[OPEN_MAX][2];
+	int		color[OPEN_MAX][2];
+	int		y;
+	int		x;
+	int		count;
+	int		count_line;
+	int		count_color;
+	int		distance_x;
+	int		distance_y;
 	t_img	*img;
-}	t_list;
+}	t_pixel;
 
 int		ft_strlen(char *s);
 void	ft_init_map(t_map *map);
 void	ft_init_list(t_list *lst);
-int		ft_atoi(char *str, t_list *lst);
+char	*ft_strchr(char *s, int c);
+int		ft_atoi(char *str, t_list *lst, t_pixel *pixel);
 char	**ft_split(char *s, char c);
 void	ft_free_2_d_char(char **s);
 void	ft_free_3_d_char(char ***s);
-void	ft_free_end(t_list *lst);
+void	ft_free_end(t_list *lst, t_pixel *pixel);
 void	ft_map(t_list *lst, char **av);
-void	ft_write_map(t_list *lst, char *av);
+void	ft_pixel(t_list *lst, t_pixel *pixel);
+void	ft_write_map(t_pixel *pixel, char *av);
+
+void	ft_print_pixel(t_pixel *pixel);
+void	ft_print_map(t_list *lst);
+void	ft_print_color(t_pixel *pixel);
 
 #endif

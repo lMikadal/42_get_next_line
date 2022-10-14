@@ -32,8 +32,9 @@ void	ft_free_3_d_char(char ***s)
 	free(s);
 }
 
-void	ft_free_end(t_list *lst)
+void	ft_free_end(t_list *lst, t_pixel *pixel)
 {
 	ft_free_3_d_char(lst->map);
-	free(lst->img);
+	free(pixel->img);
+	free(pixel);
 }

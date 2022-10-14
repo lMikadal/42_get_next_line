@@ -33,7 +33,21 @@ void	ft_init_list(t_list *lst)
 	lst->map = NULL;
 }
 
-int	ft_atoi(char *str, t_list *lst)
+char	*ft_strchr(char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (&s[i]);
+		i++;
+	}
+	return (0);
+}
+
+int	ft_atoi(char *str, t_list *lst, t_pixel *pixel)
 {
 	int			i;
 	int			m;
@@ -54,6 +68,6 @@ int	ft_atoi(char *str, t_list *lst)
 		i++;
 	}
 	if (sum * m > 2147483647 || sum * m < -2147483648)
-		ft_free_end(lst);
+		ft_free_end(lst, pixel);
 	return ((int)(sum * m));
 }
