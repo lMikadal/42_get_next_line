@@ -25,12 +25,12 @@ int	ft_strlen(char *s)
 void	ft_init_map(t_map *map)
 {
 	map->line = 0;
-	map->stk = NULL;
+	map->stk = 0;
 }
 
 void	ft_init_list(t_list *lst)
 {
-	lst->map = NULL;
+	lst->map = 0;
 }
 
 char	*ft_strchr(char *s, int c)

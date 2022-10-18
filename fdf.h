@@ -18,7 +18,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <math.h>
-# include <limits.h>
 # include "minilibx_macos/mlx.h"
 # include "get_next_line/get_next_line.h"
 
@@ -44,9 +43,9 @@ typedef struct s_img
 
 typedef struct s_pixel
 {
-	double	point[OPEN_MAX][3];
-	int		line[OPEN_MAX][2];
-	int		color[OPEN_MAX][2];
+	double	point[1000000][3];
+	int		line[1000000][2];
+	int		color[1000000][2];
 	int		y;
 	int		x;
 	int		count;
@@ -68,10 +67,11 @@ void	ft_free_3_d_char(char ***s);
 void	ft_free_end(t_list *lst, t_pixel *pixel);
 void	ft_map(t_list *lst, char **av);
 void	ft_pixel(t_list *lst, t_pixel *pixel);
+void	ft_line(t_pixel *pixel);
 void	ft_write_map(t_pixel *pixel, char *av);
 
 void	ft_print_pixel(t_pixel *pixel);
 void	ft_print_map(t_list *lst);
 void	ft_print_color(t_pixel *pixel);
-
+void	ft_print_line(t_pixel *pixel);
 #endif

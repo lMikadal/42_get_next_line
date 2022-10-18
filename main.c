@@ -85,6 +85,7 @@ int	main(int ac, char **av)
 		if (!pixel)
 			return (0);
 		ft_pixel(&lst, pixel);
+		ft_line(pixel);
 ft_print_color(pixel);
 		ft_write_map(pixel, av[1]);
 
@@ -119,4 +120,11 @@ void	ft_print_color(t_pixel *pixel)
 	int	i = -1;
 	while (++i < pixel->count_color)
 		printf("color: index[%d] = %d\n", pixel->color[i][0], pixel->color[i][1]);
+}
+
+void	ft_print_line(t_pixel *pixel)
+{
+	int	i = -1;
+	while (++i < pixel->count_line)
+		printf("line %d: x %d,y %d\n", i, pixel->line[i][0], pixel->line[i][1]);
 }

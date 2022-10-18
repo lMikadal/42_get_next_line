@@ -97,7 +97,12 @@ static int	ft_chk_color(int i, t_pixel *pixel)
 		j++;
 	}
 	return (-1);
-}	
+}
+
+static void	ft_write_line(t_pixel *pixel)
+{
+	
+}
 
 void	ft_write_map(t_pixel *pixel, char *av)
 {
@@ -128,6 +133,7 @@ while (++j < pixel->count)
 	else
 		ft_mlx_pixel_put(pixel, x, y, color);
 }
+	ft_wirte_line(pixel);
 
 	mlx_put_image_to_window(mlx, mlx_win, pixel->img->img, 0, 0);
 	mlx_loop(mlx);

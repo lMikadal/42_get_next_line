@@ -94,7 +94,7 @@ static void	ft_init_img(t_list *lst, t_pixel *pixel)
 			pixel->point[s][0] = start_x;
 			pixel->point[s][1] = start_y;
 			pixel->point[s][2] = start_z + ft_atoi(lst->map[y][x], lst, pixel);
-			if (ft_strchr(lst->map[y][x], ',') != NULL)
+			if (ft_strchr(lst->map[y][x], ',') != 0)
 			{
 				pixel->color[pixel->count_color][0] = s;
 				pixel->color[pixel->count_color][1] = ft_color(lst->map[y][x]);
